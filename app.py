@@ -43,14 +43,15 @@ def creating():
 def inserting():
     conn = psycopg2.connect(DATABASE_URL)
     cur = conn.cursor()
-    
-    INSERT INTO Basketball (First, Last, City, Name, Number)
-    VALUES
-    ('Jayson', 'Tatum', 'Boston', 'Celtics', 0),
-    ('Stephen', 'Curry', 'San Francisco', 'Warriors', 30),
-    ('Nikola', 'Jokic', 'Denver', 'Nuggets', 15),
-    ('Kawhi', 'Leonard', 'Los Angeles', 'Clippers', 2),
-    ('YOUR_FIRST_NAME', 'YOUR_LAST_NAME', 'CU Boulder', 'YOUR_TEAM_OR_LABEL', 3308);
+    cur.execute("""
+        INSERT INTO Basketball (First, Last, City, Name, Number)
+        VALUES
+        ('Jayson', 'Tatum', 'Boston', 'Celtics', 0),
+        ('Stephen', 'Curry', 'San Francisco', 'Warriors', 30),
+        ('Nikola', 'Jokic', 'Denver', 'Nuggets', 15),
+        ('Kawhi', 'Leonard', 'Los Angeles', 'Clippers', 2),
+        ('YOUR_FIRST_NAME', 'YOUR_LAST_NAME', 'CU Boulder', 'YOUR_TEAM_OR_LABEL', 3308);
+    """)
 
     conn.commit()
     conn.close()
