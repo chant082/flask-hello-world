@@ -79,7 +79,7 @@ def selecting():
     cur.close()
     conn.close()
 
-@app.route('db_drop')
+@app.route('/db_drop')
 def dropping():
     conn = psycopg2.connect(DATABASE_URL)
     cur = conn.cursor()
