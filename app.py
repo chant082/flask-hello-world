@@ -4,7 +4,7 @@ import psycopg2
 from flask import Flask
 app = Flask(__name__)
 
-DATABASE_URL = os.environ.get("DATABASE_URL")
+DATABASE_URL = os.environ.get("postgresql://database_lab_10_user:u8lhT3Oa7H3aebmrQOtnPazFv5JE8XkE@dpg-d9jvv59t0dsc738lgjfg-a/database_lab_10")
 
 @app.route('/')
 def hello_world():
