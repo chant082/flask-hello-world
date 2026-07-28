@@ -61,7 +61,7 @@ def inserting():
 def selecting():
     conn = psycopg2.connect(DATABASE_URL)
     cur = conn.cursor()
-    cur.execute("""
+    cur.execute('''
         SELECT * FROM Basketball;
         ''')
     records = cur.fetchall()
@@ -75,3 +75,6 @@ def selecting():
         response_string+="</tr>"
     response_string+="</table>"
     return response_string
+
+    cur.close()
+    conn.close()
